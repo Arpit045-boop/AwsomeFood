@@ -53,15 +53,15 @@ const mongoDB = async()=>{
 
 mongoDB();
 
+app.get('/',(req,res,next)=>{
+  res.status(200).json({
+    message:'bad request'
+  })
+})
 app.use(express.json())
 app.use('/api',require("./Routes/createUsers"))
 app.use('/api',require("./Routes/DisplayData"))
 app.use('/api',require("./Routes/OrderData"))
 
-app.get('*',(req,res,next)=>{
-  res.status(200).json({
-    message:'bad request'
-  })
-})
 
 app.listen(port,()=>{console.log('this app is running on '+port)});
