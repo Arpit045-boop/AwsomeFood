@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express()
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+const app = express();
+require('dotenv').config({path: __dirname + '/.env'});
 const port = 8000
 
 app.use((req,res,next)=>{
@@ -11,7 +13,7 @@ app.use((req,res,next)=>{
     );
     next();
 })
-const mongoURL = "mongodb://127.0.0.1:27017/GoFood?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.2";
+const mongoURL = "mongodb+srv://admin-arpit:Asdf1234@cluster0.gn6ojf5.mongodb.net/GoFood?retryWrites=true&w=majority";
 const mongoDB = async()=>{
     await mongoose.connect(mongoURL, { useNewURLParser: true }).then(
         async (err, result) => {
