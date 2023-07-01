@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // const { MongoClient, ServerApiVersion } = require('mongodb');
 const app = express();
 require('dotenv').config({path: __dirname + '/.env'});
-const port = 8000
+const port = process.env.PORT || 8000;
 
 app.use((req,res,next)=>{
     res.setHeader("Access-Control-Allow-Origin","https://awsome-food-frontend.vercel.app/");
@@ -57,6 +57,11 @@ app.use(express.json())
 app.use('/api',require("./Routes/createUsers"))
 app.use('/api',require("./Routes/DisplayData"))
 app.use('/api',require("./Routes/OrderData"))
-app.listen(port, () => {
-    console.log("Server is running on 8000");
+
+app.get('*',(req,res,next)=>{
+  res.status(200).json({
+    message:'bad request'
+  })
 })
+
+app.listen(port,()=>{console.log('this app is running on '+port)});
