@@ -6,7 +6,7 @@ require('dotenv').config({path: __dirname + '/.env'});
 const port = 8000
 
 app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
+    res.setHeader("Access-Control-Allow-Origin","https://awsome-food-frontend.vercel.app/");
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
