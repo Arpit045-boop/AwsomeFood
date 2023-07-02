@@ -50,7 +50,7 @@ router.post("/createuser", [
         let email = req.body.email;
             try {
                 let userData = await User.findOne({email});
-                console.log(userData);  
+                // console.log(userData);  
                 if(!userData){
                     return res.status(400).json({errors:"Please check credentials"})
                 }
@@ -58,7 +58,7 @@ router.post("/createuser", [
                 const pwdCompare = await bcryptjs.compare(req.body.password,userData.password)
 
                 if(! pwdCompare){
-                    return res.status(400).json({errors:"Please check credentials"})
+                    return res.status(400).json({errors:"Please check credesxsxsxntials"})
                 }
 
                 const data = {
