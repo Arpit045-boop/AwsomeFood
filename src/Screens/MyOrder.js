@@ -22,13 +22,6 @@ export default function MyOrder() {
             await setorderData(response)
         })
 
-
-
-        // await res.map((data)=>{
-        //    console.log(data)
-        // })
-
-
     }
 
     useEffect(() => {
