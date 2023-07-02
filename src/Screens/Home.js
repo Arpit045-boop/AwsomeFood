@@ -10,12 +10,7 @@ function Home() {
   const [foodItem, setFoodItem] = useState([]);
   const [search,setSearch] = useState("");
   const loadData = async () => {
-    let response = await fetch("https://awsome-food-e463.vercel.app/api/foodData", {
-      method: "POST",
-      header: {
-        'Content-type': 'application/json'
-      }
-    });
+    let response = await fetch("https://foodappapi-arpit045-boop.onrender.com/api/foodData");
     response = await response.json();
     setFoodCat(response[1]);
     setFoodItem(response[0]);

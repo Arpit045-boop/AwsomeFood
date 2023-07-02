@@ -2,17 +2,20 @@ const express = require('express');
 const mongoose = require('mongoose');
 // const { MongoClient, ServerApiVersion } = require('mongodb');
 const app = express();
-require('dotenv').config({path: __dirname + '/.env'});
+const cors = require('cors');
+// require('dotenv').config({path: __dirname + '/.env'});
 const port = process.env.PORT || 8000;
 
-app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin","https://awsome-food-frontend.vercel.app/");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-})
+app.use(cors());
+
+app.use(
+    cors({
+      origin: 'https://awsome-food-frontend.vercel.app/', // Replace with your frontend URL
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Allow the necessary HTTP methods
+      allowedHeaders: ['Content-Type', 'Authorization'], // Allow the necessary headers
+    })
+  );
+
 const mongoURL = "mongodb+srv://admin-arpit:Asdf1234@cluster0.gn6ojf5.mongodb.net/GoFood?retryWrites=true&w=majority";
 const mongoDB = async()=>{
     await mongoose.connect(mongoURL, { useNewURLParser: true }).then(
@@ -57,11 +60,13 @@ app.get('/',(req,res,next)=>{
   res.status(200).json({
     message:'bad request'
   })
-})
-app.use(express.json())
-app.use('/api',require("./Routes/createUsers"))
-app.use('/api',require("./Routes/DisplayData"))
-app.use('/api',require("./Routes/OrderData"))
+});
 
 
-app.listen(port,()=>{console.log('this app is running on '+port)});
+app.use(express.json());
+app.use('/api',require("./Routes/createUsers"));
+app.use('/api',require("./Routes/DisplayData"));
+app.use('/api',require("./Routes/OrderData"));
+
+
+app.listen(port,()=>{console.log('this app is running on '+port)})
