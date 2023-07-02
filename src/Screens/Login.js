@@ -38,13 +38,15 @@ function Login() {
     }
     return (
       <div className='container'>
-        <form className='m-3' onSubmit={handleSubmit}>
-          <label className="mx-3">Email</label>
+        <form className='d-flex align-items-center flex-column bd-highlight mb-3' style={{marginTop:"120px"}} onSubmit={handleSubmit}>
+          <h4>Login</h4>
+          <p>Please enter your email and password</p>
+          <label className="mb-3">Email</label>
           <input type="email" name="email" value={credentials.email} onChange={handleChange} />
-          <label className="mx-3">password</label>
+          <label className="mb-3 my-3">password</label>
           <input type='password' name="password" value={credentials.password} onChange={handleChange} />
           
-          <button type='submit' className='btn btn-success mx-3' >Submit</button>
+          <button type='submit' className='btn btn-success mb-3 my-5' >Submit</button>
           <Link to="/createuser">
           <button type='submit' className='btn btn-danger mx-3' >I'm New User</button>
           </Link>

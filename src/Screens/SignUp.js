@@ -34,17 +34,19 @@ function SignUp() {
   }
   return (
     <div className='container'>
-      <form className='m-3' onSubmit={handleSubmit}>
-        <label className="mx-3">Name</label>
-        <input type="text" name="name" value={credentials.name} onChange={handleChange} />
-        <label className="mx-3">Email</label>
-        <input type="email" name="email" value={credentials.email} onChange={handleChange} />
-        <label className="mx-3">password</label>
-        <input type='password' name="password" value={credentials.password} onChange={handleChange} />
-        <label className="mx-3">location</label>
-        <input type='text' name="location" value={credentials.location} onChange={handleChange} />
+      <form className='d-flex align-items-center flex-column bd-highlight mb-3' style={{marginTop:"120px"}} onSubmit={handleSubmit}>
+        <h4>Sign Up</h4>
+        <p>Please enter the required information</p>
+        <label className="mb-3">Name</label>
+        <input className='mb-3' style={{width:"400px"}} type="text" name="name" value={credentials.name} onChange={handleChange} />
+        <label className="mb-3">Email</label>
+        <input type="email" name="email" style={{width:"400px"}} value={credentials.email} onChange={handleChange} />
+        <label className="mb-3 my-3">password</label>
+        <input type='password' name="password" style={{width:"400px"}} value={credentials.password} onChange={handleChange} />
+        <label className="mb-3 my-3">location</label>
+        <input className='mb-3' type='text' style={{width:"400px"}} name="location" value={credentials.location} onChange={handleChange} />
 
-        <button type='submit' className='btn btn-success mx-3' >Submit</button>
+        <button type='submit' className='btn btn-success mb-3' style={{width:"200px"}} >Submit</button>
         <Link to="/login">
         <button type='submit' className='btn btn-danger mx-3' >Already a User</button>
         </Link>
