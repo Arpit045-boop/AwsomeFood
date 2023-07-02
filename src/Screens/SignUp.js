@@ -38,13 +38,13 @@ function SignUp() {
         <h4>Sign Up</h4>
         <p>Please enter the required information</p>
         <label className="mb-3">Name</label>
-        <input className='mb-3' style={{width:"400px"}} type="text" name="name" value={credentials.name} onChange={handleChange} />
+        <input className='mb-3' style={{width:"300px"}} type="text" name="name" value={credentials.name} onChange={handleChange} />
         <label className="mb-3">Email</label>
-        <input type="email" name="email" style={{width:"400px"}} value={credentials.email} onChange={handleChange} />
+        <input type="email" name="email" style={{width:"300px"}} value={credentials.email} onChange={handleChange} />
         <label className="mb-3 my-3">password</label>
-        <input type='password' name="password" style={{width:"400px"}} value={credentials.password} onChange={handleChange} />
+        <input type='password' name="password" style={{width:"300px"}} value={credentials.password} onChange={handleChange} />
         <label className="mb-3 my-3">location</label>
-        <input className='mb-3' type='text' style={{width:"400px"}} name="location" value={credentials.location} onChange={handleChange} />
+        <input className='mb-3' type='text' style={{width:"300px"}} name="location" value={credentials.location} onChange={handleChange} />
 
         <button type='submit' className='btn btn-success mb-3' style={{width:"200px"}} >Submit</button>
         <Link to="/login">
