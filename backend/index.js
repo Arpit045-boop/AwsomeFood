@@ -8,13 +8,13 @@ const port = process.env.PORT || 8000;
 
 app.use(cors());
 
-app.use(
-    cors({
-      origin: 'https://awsome-food-frontend.vercel.app/', // Replace with your frontend URL
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Allow the necessary HTTP methods
-      allowedHeaders: ['Content-Type', 'Authorization'], // Allow the necessary headers
-    })
-  );
+// app.use(
+//     cors({
+//       origin: 'https://awsome-food-frontend.vercel.app', // Replace with your frontend URL
+//       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Allow the necessary HTTP methods
+//       allowedHeaders: ['Content-Type', 'Authorization'], // Allow the necessary headers
+//     })
+//   );
   const allowCors = fn => async (req, res) => {
     res.setHeader('Access-Control-Allow-Credentials', true)
     res.setHeader('Access-Control-Allow-Origin', '*')
