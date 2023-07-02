@@ -6,7 +6,7 @@ function Login() {
       const [credentials, setcredentials] = useState({email: "", password: ""})
     const handleSubmit = async (e) => { 
       e.preventDefault();
-      const response = await fetch("http://localhost:8000/api/loginUser", {
+      const response = await fetch("https://foodappapi-arpit045-boop.onrender.com/api/loginUser", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json'

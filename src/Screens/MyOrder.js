@@ -8,7 +8,7 @@ export default function MyOrder() {
 
     const fetchMyOrder = async () => {
         console.log(localStorage.getItem('userEmail'))
-        await fetch("http://localhost:8000/api/myOrderData", {
+        await fetch("https://foodappapi-arpit045-boop.onrender.com/api/myOrderData", {
             
             method: 'POST',
             headers: {
