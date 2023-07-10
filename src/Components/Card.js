@@ -83,13 +83,13 @@ export default function Card(props) {
           <h5 className="card-title">{props.foodItem.name}</h5>
           {/* <p className="card-text">This is some random text. This is description.</p> */}
           <div className='container w-100 p-0' style={{ height: "38px" }}>
-            <select className="m-2 h-100 w-20 bg-success text-black rounded" style={{ select: "#FF0000" }} onChange={handleQty}>
+            <select className="m-2 h-100 w-20 bg-danger text-white rounded" style={{ select: "#FF0000" }} onChange={handleQty}>
               {Array.from(Array(6), (e, i) => {
                 return (
                   <option key={i + 1} value={i + 1}>{i + 1}</option>)
               })}
             </select>
-            <select className="m-2 h-100 w-20 bg-success text-black rounded" style={{ select: "#FF0000" }} ref={priceRef} onChange={handleOptions}>
+            <select className="m-2 h-100 w-20 bg-danger text-white rounded" style={{ select: "#FF0000" }} ref={priceRef} onChange={handleOptions}>
               {priceOptions.map((i) => {
                 return <option key={i} value={i}>{i}</option>
               })}
@@ -99,7 +99,7 @@ export default function Card(props) {
             </div>
           </div>
           <hr></hr>
-          <button className={`btn btn-success justify-center ms-2 `} onClick={handleAddToCart}>Add to Cart</button>
+          <button className={`btn btn-danger justify-center ms-2 `} onClick={handleAddToCart}>Add to Cart</button>
           {/* <button className={`btn btn-danger justify-center ms-2 ${btnEnable ? "" : "disabled"}`} onClick={handleRemoveCart}>Remove</button> */}
         </div>
       </div>
@@ -107,81 +107,3 @@ export default function Card(props) {
   )
 }
 
-
-// import React, { useEffect, useRef, useState } from 'react'
-// import { useCart, useDispatchCart } from './ContextReducer';
-
-// function Card(props) {
-//     let dispatch = useDispatchCart();
-//     let data =useCart();
-//     const priceRef = useRef();
-//     var option = props.options;
-//     var priceOptions = Object.keys(option); 
-//     // console.log(priceOptions);
-//     const [qty,setQty] = useState(1);
-//     const [size,setSize] = useState("");
-//     let finalPrice = qty * parseInt(option[size]);
-//     const handleAddtoCart= async ()=>{
-        
-//         let food = []
-//         for (const item of data){
-//             // console.log(item);   
-//             if(item.id === props.foodItem._id){
-//                 food = item;
-//                 break;
-//             }
-//         }
-//         if(food!==[]){
-//             if(food.size === size){
-//                 await dispatch({type:"UPDATE",id: props.foodItem._id,price:finalPrice,qty:qty})
-//                 return 
-//             }
-//             else if(food.size !== size){
-//                 await dispatch({type:"ADD",id:props.foodItem._id,name:props.foodItem.name,qty:qty,size:size,price:finalPrice})
-//                 return
-//             }
-//             return
-//         }
-//         await dispatch({type:"ADD",id:props.foodItem._id,name:props.foodItem.name,qty:qty,size:size,price:finalPrice});
-//         console.log(data);
-//     }
-//     // console.log(option);
-    
-//     useEffect(()=>{
-//         setSize(priceRef.current.value)
-//     },[]   )
-//     return (
-//         <div>
-//             <div className="card m-5" style={{ "width": "22rem", "maxHeight": "600px" }}>
-//                 <img src={props.foodItem.img} style={{height:"12rem", objectFit:"fill"}} />
-//                 <div className="card-body" style={{}} >
-//                     <h5 className="card-title">{props.foodItem.name}</h5>
-//                     {/* <h6 className="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> */}
-//                     <p className="card-text">{props.foodItem.description}</p>
-//                     <div className='container w-100'>
-//                         <select className='m-2 h-100 bg-success rounded' onChange={(e)=>setQty(e.target.value)}>
-//                             {Array.from(Array(6), (e, i) => {
-//                                 return (
-//                                     <option key={i + 1} value={i + 1}>{i + 1}</option>
-//                                 )
-//                             })}
-//                         </select>
-//                         <select className='m-2 h-100 bg-success rounded' ref={priceRef} onChange={(e)=>setSize(e.target.value)}>
-//                             {/* {console.log(priceOptions)} */}
-//                             {priceOptions.map((data)=>{
-//                                 return <option key={data} value={data}>{data}</option>
-//                             })}
-//                         </select>
-//                         <div className='d-inline h-100 fs-5'>
-//                             {finalPrice}/-
-//                         </div>
-//                     </div>
-//                 </div>
-//                 <hr></hr>
-//                 <button className='btn btn-success justify-center mx-5 me-5 mb-4 my-2' onClick={handleAddtoCart}>Add to Cart</button>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Card

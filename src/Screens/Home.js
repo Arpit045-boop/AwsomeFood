@@ -63,7 +63,7 @@ function Home() {
       {
         foodCat !== [] ? foodCat.map((data) => {
           return (
-            <div className='row mb-3'>
+            <div className='row mb-3 mx-3'>
               <div key={data._id} className='fs-3 m-3'>
                 {data.CategoryName}
               </div>
@@ -73,9 +73,7 @@ function Home() {
                 return (
                   <div key={filterItem._id} className='col-12 col-md-6 col-lg-3'>
                     <Card 
-                    // title={filterItem.name} 
-                    // image={filterItem.img}
-                    // desc={filterItem.description}
+                    
                     foodItem = {filterItem}
                     options={filterItem.options[0]}
                     />
