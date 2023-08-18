@@ -3,13 +3,14 @@ const mongoose = require("mongoose");
 // const { MongoClient, ServerApiVersion } = require('mongodb');
 const app = express();
 const cors = require("cors");
-// require('dotenv').config({path: __dirname + '/.env'});
-const port = process.env.PORT || 8000;
+const port = process.env.PORT ;
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 app.use(cors());
 
-const mongoURL =
-  "mongodb+srv://admin-arpit:Asdf1234@cluster0.gn6ojf5.mongodb.net/GoFood?retryWrites=true&w=majority";
+const mongoURL = process.env.DATABASE_URI
 const mongoDB = async () => {
   await mongoose
     .connect(mongoURL, { useNewURLParser: true })
